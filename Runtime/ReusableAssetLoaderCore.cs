@@ -74,7 +74,7 @@ namespace Kogane
             // アセットの非同期読み込み処理が開始している場合はキャンセルします
             m_cancellationTokenSource?.Cancel();
             m_cancellationTokenSource?.Dispose();
-            m_cancellationTokenSource = new CancellationTokenSource();
+            m_cancellationTokenSource = new();
             m_cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource
             (
                 m_cancellationTokenSource.Token,
