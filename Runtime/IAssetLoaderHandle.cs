@@ -16,10 +16,5 @@ namespace Kogane
         /// 非同期読み込みのタスクを返します
         /// </summary>
         UniTask<T> Task { get; }
-
-        /// <summary>
-        /// 読み込んだアセットを返します
-        /// </summary>
-        T Result { get; }
     }
 }

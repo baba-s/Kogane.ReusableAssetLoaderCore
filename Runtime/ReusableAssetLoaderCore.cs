@@ -85,7 +85,7 @@ namespace Kogane
 
             // アセットの非同期読み込みを開始します
             m_handle = m_onLoad( path, m_cancellationTokenSource.Token );
-            await m_handle.Task;
+            var result = await m_handle.Task;
 
             // すでに読み込み済みのアセットが存在する場合はアンロードします
             // 新しいアセットの読み込み前に読み込み済みのアセットをアンロードすると
@@ -98,7 +98,7 @@ namespace Kogane
             m_cancellationTokenSource = null;
 
             // 読み込んだアセットを返します
-            return m_handle.Result;
+            return result;
         }
 
         /// <summary>
