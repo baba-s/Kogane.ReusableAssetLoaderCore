@@ -44,6 +44,8 @@ namespace Kogane
         /// </summary>
         public async UniTask<T> LoadAsync( Component component, string path )
         {
+            if ( component == null ) throw new OperationCanceledException();
+
             return await LoadAsync( component.gameObject, path );
         }
 
@@ -55,6 +57,8 @@ namespace Kogane
         /// </summary>
         public async UniTask<T> LoadAsync( GameObject gameObject, string path )
         {
+            if ( gameObject == null ) throw new OperationCanceledException();
+
             return await LoadAsync( path, gameObject.GetCancellationTokenOnDestroy() );
         }
 
